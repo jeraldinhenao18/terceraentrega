@@ -1,0 +1,24 @@
+{{>header}}
+<br>
+{{{respuesta}}}
+<h1>Los datos de {{titulo}}</h1>
+    
+<form action="/registrar" method="POST">
+      <div class="row">
+        <div class="col-sm">
+            <label for="cedula" class="form-label">Cedula</label>
+            <input type="text" class="form-control" name="cedula" required>
+            <br>
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" required>
+             <br>             
+            <label for="pais" class="form-label">pais</label>
+            <input type="text" class="form-control" name="pais" required>
+        </div>
+        <div class="col-sm">
+            <input type="submit" name="Enviar" class='form-control btn btn-primary'>
+        </div>
+      </div>
+  </form>
+
+{{>footer}}

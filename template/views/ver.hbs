@@ -1,0 +1,63 @@
+{{>header}}
+    <h1>Ver cursos como administrador</h1>
+    <form action="/eliminar" method="POST">
+        <div id="nombreCurso" class="row" style="display: block;">
+
+        <div class="text-center col-sm-12 pt-4">
+            <h2><label for="listaCursos" class="form-label">A continuación, se muestran los cursos registrados hasta la
+                fecha
+                </label>
+            </h2>
+        </div>
+        <table class="table text-white">
+            <thead>
+                <th>Id</th>
+                <th>Nombre del curso</th>
+                <th>Valor</th>
+                <th>Duracion</th>
+                <th>Descripcion</th>
+                <th>Modalidad</th>
+            </thead>
+            <tbody>
+                {{{listarC}}}
+            </tbody>
+        </table>
+    </form>
+
+    <h1>mostrar al estudiante</h1>
+    <form action="/eliminar" method="POST">
+        <table class="table">
+            <thead>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>País</th>
+                <th>eliminar</th>
+            </thead>
+            <tbody>
+                {{{listar}}}
+            </tbody>
+        </table>
+    </form>
+
+
+    <br><hr><br>
+
+    <br><hr><br>
+
+    <h1>Detalle los estudiantes y cursos</h1>
+    <table class="table">
+        <thead>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Pais</th>
+            <th>Id</th>
+            <th>Curso</th>
+            <th>Precio</th>
+        </thead>
+        <tbody>
+            {{{curso_estudiar}}}
+        </tbody>
+    </table>
+
+
+{{>footer}}

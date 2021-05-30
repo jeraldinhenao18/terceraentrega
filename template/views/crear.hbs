@@ -1,0 +1,131 @@
+{{>header}}
+<br>
+{{{respuesta}}}
+<br>
+<div class="text-center container">
+    <div class="text-center col-12 pt-1">
+        <h1>Ingresa los datos para crear un curso</h1>
+
+    </div>
+    <form action="/crear" method="post">
+        <div class="row">
+            <div class="text-center col-sm-6 pt-1">
+                <label for="idcurso" class="form-label">Id del curso</label>
+                <input type="text" class="form-control" name="idCurso" required
+                    placeholder="Ingresa aquí el id del curso">
+            </div>
+            <div class="text-center col-sm-6 pt-1">
+                <label for="valor" class="form-label">Valor</label>
+                <input type="text" class="form-control" name="valor" required
+                    placeholder="Ingresa aquí el valor del curso">
+            </div>
+            <div class="text-center col-sm-6 pt-1">
+                <label for="nombreCurso" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombreCurso" required
+                    placeholder="Ingresa aquí el nombre del curso">
+            </div>
+            <div class="text-center col-sm-6 pt-1">
+                <label for="modalidad" class="form-label">Modalidad</label><br />
+                <select class="form-control" name="modalidadCurso" data-live-search="true">
+                    <option value="presencial">Presencial</option>
+                    <option value="semipresencial">Semipresencial</option>
+                    <option value="virtual">Virtual</option>
+                </select>
+            </div>
+            <div class="text-center col-sm-6 pt-1">
+                <label for="descripción" class="form-label">Descripción</label>
+                <textarea class="form-control" rows="6" name="descripcion"></textarea>
+            </div>
+            <div class="text-center col-sm-6 pt-1">
+                <label for="duracion" class="form-label">Duración</label>
+                <input type="text" class="form-control" name="duracion" required
+                    placeholder="Ingresa aquí el total de horas del curso">
+            </div>
+            <div class="row pt-4">
+                <div class="col-sm-12">
+                    <input class="btn btn-primary" type="submit" value="Enviar">
+                </div>
+            </div>
+    </form>
+</div>
+
+<h1>Ver cursos como administrador</h1>
+<table class="table text-white">
+    <thead>
+        <th>Id</th>
+        <th>Nombre del curso</th>
+        <th>Valor</th>
+        <th>Duracion</th>
+        <th>Descripcion</th>
+        <th>Modalidad</th>
+        <th>Estado</th>
+    </thead>
+    <tbody>
+        {{#each cursos}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.nombre}}</td>
+            <td>{{this.valor}}</td>
+            <td>{{this.duracion}}</td>
+            <td>{{this.descripcion}}</td>
+            <td>{{this.modalidad}}</td>
+            <td>{{this.estado}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br>
+<h1>Ver estudiantes por curso</h1>
+<br>
+<form action="/verEstudiantes" method="POST">
+    <label for="idCurso">Elije un curso</label>
+    <select name="idCursoVer">
+        {{#each cursos}}
+        <option value="{{this._id}}">{{this.nombre}}</option>
+        {{/each}}
+    </select>
+    <input class="btn btn-primary" type="submit" value="Enviar">
+</form>
+<form action="/eliminarEstudiante" method="POST">
+    <input value="{{cursoDEst}}" name="idCurD" readonly style="display: none;">
+    <table class="table text-white">
+        <thead>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Pais</th>
+            <th>Desvincular</th>
+        </thead>
+        <tbody>
+            {{#each estudiantes}}
+            <tr>
+                <td>{{this.nombre}}</td>
+                <td>{{this.cedula}}</td>
+                <td>{{this.pais}}</td>
+                <td><button name="idEstDelete" value="{{this._id}}" type="submit">ELIMINAR</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</form>
+<br>
+
+<div class="text-center col-sm-12 pt-4">
+    <h2><label for="listaCursos" class="form-label">Modificar cursos</label></h2>
+</div>
+<form action="/update" method="POST">
+
+    <label for="idCurso">Elije un curso</label>
+    <select name="idUpdate">
+        {{#each cursos}}
+        <option value="{{this._id}}">{{this.nombre}}</option>
+        {{/each}}
+    </select>
+
+    <label for="cambiarEstado">Elija una acción</label>
+    <select name="opcionesDeCursos">
+        <option value="cambiarEstado">Cambiar Estado</option>
+        <option value="eliminar">Elimiar</option>
+    </select><br>
+    <input class="btn btn-primary" type="submit" value="Aplicar">
+</form>
+{{>footer}}

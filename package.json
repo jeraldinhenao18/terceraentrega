@@ -1,0 +1,27 @@
+{
+  "name": "entrega3",
+  "version": "1.0.1",
+  "description": "tercera entrega",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Jeraldin"
+  },
+  "author": "Jeraldin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.0.0-beta3",
+    "bootstrap-icons": "^1.4.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "memorystore": "^1.6.6",
+    "mongoose": "^5.12.9",
+    "yargs": "^16.2.0"
+  }
+}

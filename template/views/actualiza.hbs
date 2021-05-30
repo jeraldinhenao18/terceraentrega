@@ -1,0 +1,49 @@
+{{>header}}
+<h2>actualizar al estudiante</h2>
+<table class="table">
+    <thead>
+        <th>Cedula</th>
+        <th>Nombre</th>
+        <th>País</th>
+    </thead>
+    <tbody>
+        {{{listar}}}
+    </tbody>
+</table>
+<br>
+<form action="/ver" method="POST"> 
+    <div class="col-sm">
+            <label class="form-label">Cedula</label>    
+            {{{listarnombre}}}   
+    </div>
+    <div class="col-sm">
+        <input type="submit" name="Enviar" class='form-control btn btn-primary'>
+    </div>
+</form>
+
+<br><hr><br>
+
+
+<!--******************************* Curso ************************-->
+<h2>actualizar al curso</h2>
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Curso</th>
+        <th>Costo</th>
+    </thead>
+    <tbody>
+        {{{listarC}}}
+    </tbody>
+</table>
+<br>
+<form action="/ver" method="POST"> 
+    <div class="col-sm">
+    <label class="form-label">Id</label>    
+        {{{listarnombreC}}}   
+    </div>
+    <div class="col-sm">
+        <input type="submit" name="Enviar" class='form-control btn btn-primary'>
+    </div>
+</form>
+{{>footer}}

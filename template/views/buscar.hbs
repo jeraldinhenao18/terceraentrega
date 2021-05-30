@@ -1,0 +1,54 @@
+{{>header}}
+<h1>{{titulo}}</h1>
+<h2>buscar al estudiante</h2>
+  <form action="/ver" method="POST">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+        <label>Cedula</label>
+          <!--{{{listarnombre}}} --> 
+          <input type="number" name="cedula">
+        </div>
+        <!--<div class="col-sm">
+        <label>Nombre</label>
+          <input type="text" name="nombre">
+        </div>
+        <div class="col-sm">
+        <label>Pais</label>
+          <input type="text" name="pais">
+        </div>-->
+        <div class="col-sm">
+          <input type="submit" name="Enviar" class='form-control btn btn-primary'>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <hr><br>
+
+  <!--******************************* Curso ************************-->
+  <h2>buscar al curso</h2>
+  <form action="/ver" method="POST">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+        <label>Id</label>
+          <!--{{{listarnombre}}} --> 
+          <input type="number" name="id">
+        </div>
+        <!--<div class="col-sm">
+        <label>Nombre</label>
+          <input type="text" name="nombre">
+        </div>
+        <div class="col-sm">
+        <label>Pais</label>
+          <input type="text" name="pais">
+        </div>-->
+        <div class="col-sm">
+          <input type="submit" name="Enviar" class='form-control btn btn-primary'>
+        </div>
+      </div>
+    </div>
+  </form>
+
+{{>footer}}

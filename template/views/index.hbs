@@ -1,0 +1,79 @@
+{{>header}}
+<br>
+{{{respuesta}}}
+<br>
+<p>
+    <center>
+        <h1>Bienvenido al Campus Virtual</h1>
+    </center>
+    <center>
+        <h3>Podrás navegar por nuestro menú y cumplir tu requerimiento</h3>
+    </center>
+</p>
+<hr>
+
+<div class="text-center col-sm-12 pt-4">
+    <h2><label for="listaCursos" class="form-label">Nuestros Cursos Disponibles </label>
+    </h2>
+</div>
+
+<table class="table text-white">
+    <thead>
+        <th>Id</th>
+        <th>Nombre del curso</th>
+        <th>Valor</th>
+        <th>Duracion</th>
+        <th>Descripcion</th>
+        <th>Modalidad</th>
+    </thead>
+    <tbody>
+        {{#each cursosD}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.nombre}}</td>
+            <td>{{this.valor}}</td>
+            <td>{{this.duracion}}</td>
+            <td>{{this.descripcion}}</td>
+            <td>{{this.modalidad}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br>
+<div class="text-center col-sm-12 pt-4">
+    <h2><label for="listaCursos" class="form-label">Matricularme</label></h2>
+</div>
+<br>
+<form action="/matricular" method="POST">
+    <div class="row">
+        <div class="col-sm">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombreEst" required  value="{{{usuario.nombre}}}">
+            <br>
+            <label for="cedula" class="form-label">Cedula</label>
+            <input type="text" class="form-control" name="cedulaEst" value="{{{usuario.cedula}}}" required>
+            <br>
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="password" value="{{{usuario.contrasena}}}" required>
+            <br>
+        </div>
+        <div class="col-sm">
+            <label for="pais" class="form-label">pais</label>
+            <input type="text" class="form-control" name="paisEst" value="{{{usuario.pais}}}" required>
+            <br>
+
+            <label for="idCurso" class="form-label">Elije un curso</label>
+            <select name="idCurso" class="form-control">
+                {{#each cursosD}}
+                <option value="{{this._id}}">{{this.nombre}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <input type="submit" name="Enviar" class='form-control btn btn-primary'>
+    </div>
+</form>
+
+
+
+
+{{>footer}}
